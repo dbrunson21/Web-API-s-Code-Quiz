@@ -13,7 +13,7 @@ var quizQuestions = [
     },
 
     {
-        question: "",
+        question: "Arrays in JavaScript can be used to store",
         choices: ["numbers and strings", "other arrays", "booleans", "all of the above"],
         correctAnswer: "all of the above"
     },
@@ -27,7 +27,7 @@ var quizQuestions = [
     {
         question: "A very useful tool used during development and debugging for printing content to the debugger is:",
         choices: ["JavaScript", "terminal/bash", "for loops", "console.log"],
-        correctAnswer: ""
+        correctAnswer: "console.log"
     },
 ];
 
