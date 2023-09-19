@@ -57,3 +57,8 @@ button.choice {
     padding: 5px;
     margin: 10px;
 }
+
+/* question pages */
+.question {
+    display: none;
+}
