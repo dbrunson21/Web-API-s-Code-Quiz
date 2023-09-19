@@ -7,8 +7,7 @@ body, h1, h2, ol, li, p {
 /* Style header */
 header {
     text-align: center;
-    background-color: #333;
-    color: white;
+    color: black;
     padding: 20px;
 }
 
@@ -21,4 +20,34 @@ button.choice {
     border: none;
     cursor: pointer;
     border-radius: 9px;
+}
+
+/* questions and answers */
+#quiz-container {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+/* messages for getting the question right or wrong */
+#message {
+    font-weight: light;
+    margin-top: 10px;
+}
+
+/* style result container */
+#result-container {
+    display: none;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+/* Style save button */
+#save-button {
+    background-color: purple;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
 }
