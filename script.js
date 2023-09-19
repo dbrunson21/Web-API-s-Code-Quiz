@@ -55,3 +55,12 @@ function startQuiz() {
     showQuestion();
     startTimer();
 }
+
+//function to display a question
+function showQuestion() {
+    var question = quizQestions[currentQuestionIndex];
+    $("#quiz-continer h2").text(`Question ${currentQuestionIndex + 1}:`);
+    $("#quiz-container .choice").each(function(index) {
+        $(this).text(question.choices[index]);
+    });
+}
