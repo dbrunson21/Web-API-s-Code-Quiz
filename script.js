@@ -43,6 +43,13 @@ $(document).ready(function () {
         var initials = $("#initials").val();
         //send code and initials to the server
         console.log(`Initials: ${initials}, Score: ${score}`);
+        var highScr= JSON.parse(localStorage.getItem("leaderboard"))|| [];
+        var obj={
+            initials,
+            score:score
+        }
+        highScr.push(obj)
+        localStorage.setItem("leaderboard", JSON.stringify(highScr))
         resetQuiz();
     });
 
@@ -52,13 +59,13 @@ $(document).ready(function () {
     var timerInterval;
 
     //funtion to start the quiz
-    function startQuiz() {
-        $("#start-button").hide();
-        currentQuestionIndex = 0;
-        score = 0;
-        showQuestion();
-        startTimer();
-    }
+    // function startQuiz() {
+    //     $("#start-button").hide();
+    //     currentQuestionIndex = 0;
+    //     score = 0;
+    //     showQuestion();
+    //     startTimer();
+    // }
 
     //function to display a question
     function showQuestion() {
@@ -112,12 +119,22 @@ $(document).ready(function () {
         var question = quizQuestions[currentQuestionIndex];
         if (selectedChoice === question.correctAnswer) {
             score++;
+            showMessage(true);
         } else {
             timeLeft -= 10; //penalty for wrong answer
+            showMessage(false);
         }
 
-        currentQuestionIndex++;
-        showQuestionPage();
+        setTimeout(function () {
+            $("#message").remove();
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < quizQuestions.length) {
+                showQuestionPage();
+            } else {
+                endQuiz();
+            }
+        }, 1000); // Delay before moving to the next question 
     }
 
 
@@ -134,46 +151,46 @@ $(document).ready(function () {
     }
 
     // Function to handle click on choice buttons
-    $("#quiz-container").on("click", ".choice", function () {
-        const selectedChoice = $(this).text();
-        const question = quizQuestions[currentQuestionIndex];
+    // $("#quiz-container").on("click", ".choice", function () {
+    //     const selectedChoice = $(this).text();
+    //     const question = quizQuestions[currentQuestionIndex];
 
-        if (selectedChoice === question.correctAnswer) {
-            score++;
-            showMessage(true);
-        } else {
-            showMessage(false);
-        }
+    //     if (selectedChoice === question.correctAnswer) {
+    //         score++;
+    //         showMessage(true);
+    //     } else {
+    //         showMessage(false);
+    //     }
 
-        setTimeout(function () {
-            $("#message").remove();
-            currentQuestionIndex++;
+    //     setTimeout(function () {
+    //         $("#message").remove();
+    //         currentQuestionIndex++;
 
-            if (currentQuestionIndex < quizQuestions.length) {
-                showQuestion();
-            } else {
-                endQuiz();
-            }
-        }, 1000); // Delay before moving to the next question
-    });
+    //         if (currentQuestionIndex < quizQuestions.length) {
+    //             showQuestion();
+    //         } else {
+    //             endQuiz();
+    //         }
+    //     }, 1000); // Delay before moving to the next question
+    // });
 
-//function to end the quiz
-function endQuiz() {
-    clearInterval(timerInterval);
-    $("#quiz-container").hide();
-    $("#result-container").show();
-    $("#score").text(score);
-}
+    //function to end the quiz
+    function endQuiz() {
+        clearInterval(timerInterval);
+        $("#quiz-container").hide();
+        $("#result-container").show();
+        $("#score").text(score);
+    }
 
-//function to reset the quiz
-function resetQuiz() {
-    currentQuestionIndex = 0;
-    timeLeft = 75;
-    score = 0;
-    $("#initials").val("");
-    $("#result-container").hide();
-    $("#start-button").show();
-}
+    //function to reset the quiz
+    function resetQuiz() {
+        currentQuestionIndex = 0;
+        timeLeft = 75;
+        score = 0;
+        $("#initials").val("");
+        $("#result-container").hide();
+        $("#start-button").show();
+    }
 
-resetQuiz();
+    resetQuiz();
 });

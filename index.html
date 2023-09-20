@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Quiz</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
 </head>
 
 <body>
@@ -19,59 +21,58 @@
     <div id="quiz-container">
         <div id="question1" class="question">
             <h2>Commonly used data types DO NOT include:</h2>
-            <ol>
-                <li><button class="choice">strings</li>
-                <li><button class="choice">booleans</li>
-                <li><button class="choice">alerts</li>
-                <li><button class="choice">numbers</li>
-            </ol>
+            <ul>
+                <li><button class="choice">strings</button></li>
+                <li><button class="choice">booleans</button></li>
+                <li><button class="choice">alerts</button></li>
+                <li><button class="choice">numbers</button></li>
+            </ul>
         </div>
         <div id="question2" class="question">
             <h2>The condition in an if / else statement is enclosed with _____.</h2>
-            <ol>
-                <li><button class="choice">quotes</li>
-                <li><button class="choice">curly brackets</li>
-                <li><button class="choice">parenthesis</li>
-                <li><button class="choice">square brackets</li>
-            </ol>
+            <ul>
+                <li><button class="choice">quotes</button></li>
+                <li><button class="choice">curly brackets</button></li>
+                <li><button class="choice">parenthesis</button></li>
+                <li><button class="choice">square brackets</button></li>
+            </ul>
         </div>
         <div id="question3" class="question">
             <h2>Arrays in JavaScript can be used to store</h2>
-            <ol>
-                <li><button class="choice">numbers and strings</li>
-                <li><button class="choice">other arrays</li>
-                <li><button class="choice">booleans</li>
-                <li><button class="choice">all of the above</li>
-            </ol>
+            <ul>
+                <li><button class="choice">numbers and strings</button></li>
+                <li><button class="choice">other arrays</button></li>
+                <li><button class="choice">booleans</button></li>
+                <li><button class="choice">all of the above</button></li>
+            </ul>
         </div>
         <div id="question4" class="question">
             <h2>String values must be enclosed within ____ when being assigned to variables.</h2>
-            <ol>
-                <li><button class="choice">commas</li>
-                <li><button class="choice">curly brackets</li>
-                <li><button class="choice">quotes</li>
-                <li><button class="choice">parenthesis</li>
-            </ol>
+            <ul>
+                <li><button class="choice"> commas</button></li>
+                <li><button class="choice">curly brackets</button></li>
+                <li><button class="choice">quotes</button></li>
+                <li><button class="choice">parenthesis</button></li>
+            </ul>
         </div>
 
         <div id="question5" class="question">
             <h2>A very useful tool used during development and debugging for printing content to the debugger is:</h2>
-            <ol>
-                <li><button class="choice">JavaScript</li>
-                <li><button class="choice">terminal/bash</li>
-                <li><button class="choice">for loops</li>
-                <li><button class="choice">console.log</li>
-            </ol>
+            <ul>
+                <li><button class="choice">JavaScript</button></li>
+                <li><button class="choice">terminal/bash</button></li>
+                <li><button class="choice">for loops</button></li>
+                <li><button class="choice">console.log</button></li>
+            </ul>
         </div>
-        <div id="result-container">
-            <p>Your score: <span id="score">0</span></p>
-            <label for="initials">Enter your initials:</label>
-            <input type="text" id="initials">
-            <button id="save button">Save Score</button>
-        </div>
+    </div>
+    <div id="result-container">
+        <p>Your score: <span id="score">0</span></p>
+        <label for="initials">Enter your initials:</label>
+        <input type="text" id="initials">
+        <button id="save-button">Save Score</button>
+    </div>
 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="script.js"></script>
 </body>
 
 </html>

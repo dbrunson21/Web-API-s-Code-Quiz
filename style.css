@@ -62,3 +62,7 @@ button.choice {
 .question {
     display: none;
 }
+
+ul {
+    text-decoration: none;
+}
